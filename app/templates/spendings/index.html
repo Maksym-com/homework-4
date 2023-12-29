@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spendings</title>
+</head>
+<body>
+    <h1>Spendings</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Sum</th>
+                <th>Is</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for spending in spendings%}
+             <tr>
+                <td>{{ spending.name }}</td>
+                <td>{{ spending.category }}</td>
+                <td>{{ spending.date }}</td>
+                <td>{{ spending.sum0 }}</td>
+                <td>{{ spending.is_spending }}</td>
+                <td><button><a href="{{ url_for('spendings.edit_spending', spending_id=spending.id) }}">Edit</a></button></td>
+                <td><button><a href="{{ url_for('spendings.delete_spending', spending_id=spending.id) }}">Delete</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
